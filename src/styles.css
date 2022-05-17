@@ -1,0 +1,11 @@
+.model-inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

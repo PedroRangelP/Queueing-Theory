@@ -12,6 +12,10 @@ module.exports = {
             react: path.join(__dirname, 'node_modules', 'react'),
         },
     },
+    devServer: {
+        open: true,
+        port: 3000,
+    },
     module: {
         rules: [
             {
@@ -36,7 +40,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: './src/index.html',
+            template: './public/index.html',
         }),
     ],
 }

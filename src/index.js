@@ -1,6 +1,8 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
+import App from './App'
 
-import HelloWorld from './HelloWorld'
+const rootElement = document.getElementById('root')
+const root = createRoot(rootElement)
 
-render(<HelloWorld />, document.getElementById('root'))
+root.render(<App />)
