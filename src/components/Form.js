@@ -1,25 +1,29 @@
 import React from 'react'
+import useInput from '../hooks/use-input'
+import Input from './Input'
 
-const Form = () => {
+const Form = ({ onChange }) => {
+    // value, reset, onChange
+    const lambdaInput = useInput()
+    const muInput = useInput()
+
     return (
-        <div className='model-inputs'>
-            <div className='form-control'>
-                <label htmlFor='lambda'>Lambda</label>
-                <input id='lambda' type='number' />
-            </div>
-            <div className='form-control'>
-                <label htmlFor='mu'>Mu</label>
-                <input id='mu' type='number' />
-            </div>
-            <div className='form-control'>
-                <label htmlFor='cw'>Cw</label>
-                <input id='cw' type='number' />
-            </div>
-            <div className='form-control'>
-                <label htmlFor='cs'>Cs</label>
-                <input id='cs' type='number' />
-            </div>
-        </div>
+        <form className='model-inputs' onChange={() => onChange(lambdaInput.value, muInput.value)}>
+            <Input
+                label='Expected clients (λ)'
+                id='lambda'
+                type='number'
+                value={lambdaInput.value}
+                onChange={lambdaInput.onChange}
+            />
+            <Input
+                label='Service rate (μ)'
+                id='mu'
+                type='number'
+                value={muInput.value}
+                onChange={muInput.onChange}
+            />
+        </form>
     )
 }
 
