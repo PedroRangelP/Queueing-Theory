@@ -12,7 +12,7 @@ const selectorOptions = { MM1: 'M/M/1', MMs: 'M/M/S', MMsK: 'M/M/s/K', MG1: 'M/G
 
 const App = () => {
     const [results, setResults] = useState({})
-    const [selection, setSelection] = useState('')
+    const [selection, setSelection] = useState(selectorOptions.MM1)
 
     const formChangeHandler = (lambda, mu) => {
         const results = calculateMM1(lambda, mu)
@@ -27,7 +27,7 @@ const App = () => {
     return (
         <Layout>
             <h1 className='title'>Queueing Theory</h1>
-            <Selector options={selectorOptions} onSelect={selectionHandler} />
+            <Selector options={selectorOptions} onSelect={selectionHandler} active={selection}/>
             <Form onChange={formChangeHandler} />
             <Results data={results} />
         </Layout>
