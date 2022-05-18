@@ -1,23 +1,15 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const Selector = ({ options, onSelect, active }) => {
-    const handleSelection = (event) => {
-        const selection = event.target.textContent
-        onSelect(selection)
-    }
-
-    const optionValues = Object.values(options)
-    const optionItems = optionValues.map((option) => (
-        <li
-            onClick={handleSelection}
-            key={option}
-            className={active === option ? 'active' : '' }
-        >
-            {option}
-        </li>
-    ))
-
-    return <ul className='selector'>{optionItems}</ul>
+const Selector = () => {
+    return (
+        <nav className='selector'>
+            <NavLink to='/MM1' className={(navData) => (navData.isActive ? 'active' : '')} >M/M/1</NavLink>
+            <NavLink to='/MMs' className={(navData) => (navData.isActive ? 'active' : '')}>M/M/s</NavLink>
+            <NavLink to='/MMsK' className={(navData) => (navData.isActive ? 'active' : '')}>M/M/s/K</NavLink>
+            <NavLink to='/MG1' className={(navData) => (navData.isActive ? 'active' : '')}>M/G/1</NavLink>
+        </nav>
+    )
 }
 
 export default Selector

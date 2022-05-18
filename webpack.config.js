@@ -5,6 +5,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
+        publicPath: '/',
     },
     resolve: {
         modules: [path.join(__dirname, 'src'), 'node_modules'],
@@ -15,6 +16,8 @@ module.exports = {
     devServer: {
         open: true,
         port: 3000,
+        // Redirects 404's to /index.html
+        historyApiFallback: true,
     },
     module: {
         rules: [

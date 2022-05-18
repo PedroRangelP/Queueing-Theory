@@ -1,36 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import './reset.css'
 import './styles.css'
 
-import Selector from './components/Selector'
-import Form from './components/Form'
-import Layout from './components/Layout'
-import Results from './components/Results'
-import calculateMM1 from './utils/MM1'
-
-const selectorOptions = { MM1: 'M/M/1', MMs: 'M/M/S', MMsK: 'M/M/s/K', MG1: 'M/G/1'}
+import MM1 from './Pages/MM1'
 
 const App = () => {
-    const [results, setResults] = useState({})
-    const [selection, setSelection] = useState(selectorOptions.MM1)
-
-    const formChangeHandler = (lambda, mu) => {
-        const results = calculateMM1(lambda, mu)
-        setResults(results)
-    }
-
-    const selectionHandler = (selection) => {
-        setSelection(selection)
-    }
-    console.log(`Selection: ` + selection)
-
     return (
-        <Layout>
-            <h1 className='title'>Queueing Theory</h1>
-            <Selector options={selectorOptions} onSelect={selectionHandler} active={selection}/>
-            <Form onChange={formChangeHandler} />
-            <Results data={results} />
-        </Layout>
+        <Routes>
+            <Route path='/' element={<Navigate replace to='/MM1' />} />
+            <Route path='/MM1' element={<MM1 />} />
+        </Routes>
     )
 }
 

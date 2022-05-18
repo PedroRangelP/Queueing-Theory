@@ -7,7 +7,7 @@
     margin: 2rem 0;
 }
 
-.selector > li {
+.selector > a {
     cursor: pointer;
     display: inline-block;
     max-width: 100px;
@@ -15,11 +15,11 @@
     padding: 0.5rem;
 }
 
-.selector > li.active {
+.selector > a.active {
     background-color: #979797;
 }
 
-.selector > li:hover {
+.selector > a:hover {
     background-color: #979797;
 }
 
