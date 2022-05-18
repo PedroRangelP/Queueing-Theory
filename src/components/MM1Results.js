@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Results = ({ data }) => {
+const MM1Results = ({ data }) => {
     const { Lq, L, Wq, W } = data
 
     return (
@@ -13,4 +13,4 @@ const Results = ({ data }) => {
     )
 }
 
-export default Results
+export default MM1Results

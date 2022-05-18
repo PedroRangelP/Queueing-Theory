@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
-const Form = ({ onChange }) => {
+const MM1Form = ({ onChange }) => {
     // value, reset, onChange
     const lambdaInput = useInput()
     const muInput = useInput()
@@ -31,4 +31,4 @@ const Form = ({ onChange }) => {
     )
 }
 
-export default Form
+export default MM1Form

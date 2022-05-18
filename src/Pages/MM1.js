@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import Results from '../components/Results'
 import calculateMM1 from '../utils/MM1'
-import Form from '../components/Form'
+import MM1Form from '../components/MM1Form'
+import MM1Results from '../components/MM1Results'
 
 const MM1 = () => {
     const [results, setResults] = useState({})
@@ -14,8 +14,8 @@ const MM1 = () => {
 
     return (
         <>
-            <Form onChange={formChangeHandler} />
-            <Results data={results} />
+            <MM1Form onChange={formChangeHandler} />
+            <MM1Results data={results} />
         </>
     )
 }
