@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
@@ -7,8 +7,12 @@ const Form = ({ onChange }) => {
     const lambdaInput = useInput()
     const muInput = useInput()
 
+    useEffect(() => {
+        onChange(lambdaInput.value, muInput.value)
+    }, [lambdaInput.value, muInput.value])
+    
     return (
-        <form className='model-inputs' onChange={() => onChange(lambdaInput.value, muInput.value)}>
+        <form className='model-inputs'>
             <Input
                 label='Expected clients (λ)'
                 id='lambda'
