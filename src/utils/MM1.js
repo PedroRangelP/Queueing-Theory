@@ -1,4 +1,4 @@
-import round from './round-number'
+import {round} from './math'
 
 const calculateMM1 = (lambda, mu) => {
     console.log("Calculating MM1")
