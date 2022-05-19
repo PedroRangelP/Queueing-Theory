@@ -1,22 +1,21 @@
 import React, { useState } from 'react'
 
-// import Results from '../components/Results'
-// import calculateMM1 from '../utils/MM1'
-// import Form from '../components/Form'
+import Results from '../components/Results'
+import calculateMMs from '../utils/MMs'
+import MMsForm from '../components/MMsForm'
 
 const MMs = () => {
     const [results, setResults] = useState({})
 
-    const formChangeHandler = (lambda, mu) => {
-        // const results = calculateMM1(lambda, mu)
-        // setResults(results)
-        return
+    const formChangeHandler = (lambda, mu, s) => {
+        const results = calculateMMs(lambda, mu, s)
+        setResults(results)
     }
 
     return (
         <>
-            {/* <Form onChange={formChangeHandler} />
-            <Results data={results} /> */}
+            <MMsForm onChange={formChangeHandler} />
+            <Results data={results} />
         </>
     )
 }
