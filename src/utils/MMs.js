@@ -1,6 +1,6 @@
 import {summation, factorial} from './math'
 
-const calculateMMs = (lambda, mu, s, Pn) => {
+const calculateMMs = (lambda, mu, s, Pn=0) => {
     console.log("Calculating MMs")
 
     const rho = lambda / (s * mu)

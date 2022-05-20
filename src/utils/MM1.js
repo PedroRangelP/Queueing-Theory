@@ -1,4 +1,4 @@
-const calculateMM1 = (lambda, mu) => {
+const calculateMM1 = (lambda, mu, Pn=0) => {
     console.log("Calculating MM1")
 
     const Lq = Math.pow(lambda, 2) / (mu * (mu - lambda))
@@ -13,7 +13,7 @@ const calculateMM1 = (lambda, mu) => {
     const P0 = 1 - rho;
     probabilities[0] = P0
 
-    for(let i = 1; i <= 10; i++) {
+    for(let i = 1; i <= Pn; i++) {
         probabilities[i] = Math.pow(rho, i) * P0
     }
 

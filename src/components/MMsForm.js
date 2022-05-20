@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { isValidInput } from '../utils/validator'
+import { isNotNegative, isValidInput } from '../utils/validator'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
@@ -8,6 +8,7 @@ const MMsForm = ({ onChange }) => {
     const lambdaInput = useInput(isValidInput)
     const muInput = useInput(isValidInput)
     const sInput = useInput(isValidInput)
+    const pnInput = useInput(isNotNegative)
 
     // const isNotNegative = (...values) {
 
@@ -17,9 +18,10 @@ const MMsForm = ({ onChange }) => {
 
     useEffect(() => {
         const isValid = lambdaInput.isValid && muInput.isValid && sInput.isValid
+                        && pnInput.isValid
 
-        if (isValid) onChange(lambdaInput.value, muInput.value, sInput.value)
-    }, [lambdaInput.value, muInput.value, sInput.value])
+        if (isValid) onChange(lambdaInput.value, muInput.value, sInput.value, pnInput.value)
+    }, [lambdaInput.value, muInput.value, sInput.value, pnInput.value])
     
     return (
         <form className='model-inputs'>
@@ -49,6 +51,15 @@ const MMsForm = ({ onChange }) => {
                 onChange={sInput.onChange}
                 isValid={sInput.isValid}
                 msg={sInput.msg}
+            />
+            <Input
+                label='Number of probabilities (Pn)'
+                id='pn'
+                type='number'
+                value={pnInput.value}
+                onChange={pnInput.onChange}
+                isValid={pnInput.isValid}
+                msg={pnInput.msg}
             />
         </form>
     )

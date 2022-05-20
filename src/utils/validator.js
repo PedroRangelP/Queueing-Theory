@@ -1,9 +1,13 @@
-const isValidInput = (value) => {
-    if (value.trim() === '') return validation(false, 'Fill this field')
-    
+const isNotNegative = (value) => {
     if (Number(value) < 0) return validation(false, 'Please enter non negative numbers')
 
     return validation()
+}
+
+const isValidInput = (value) => {
+    if (value.trim() === '') return validation(false, 'Fill this field')
+
+    return isNotNegative(value)
 }
 
 const validNum = (ans) => {
@@ -15,6 +19,7 @@ const validation = (isValid=true, msg='') => {
 }
 
 export {
+    isNotNegative,
     isValidInput,
     validNum
 }

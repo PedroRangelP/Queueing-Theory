@@ -7,8 +7,8 @@ import MMsForm from '../components/MMsForm'
 const MMs = () => {
     const [results, setResults] = useState({})
 
-    const formChangeHandler = (lambda, mu, s) => {
-        const results = calculateMMs(Number(lambda), Number(mu), Number(s), 10)
+    const formChangeHandler = (lambda, mu, s, Pn) => {
+        const results = calculateMMs(Number(lambda), Number(mu), Number(s), Pn)
         setResults(results)
     }
 
