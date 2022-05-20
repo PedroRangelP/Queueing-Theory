@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'
-import { isNotNegative } from '../utils/validator'
+import { isValidInput } from '../utils/validator'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
 const MM1Form = ({ onChange }) => {
     // value, reset, onChange
-    const lambdaInput = useInput(isNotNegative)
-    const muInput = useInput(isNotNegative)
+    const lambdaInput = useInput(isValidInput)
+    const muInput = useInput(isValidInput)
 
     useEffect(() => {
-        onChange(lambdaInput.value, muInput.value)
+        const isValid = lambdaInput.isValid && muInput.isValid
+
+        if (isValid) onChange(lambdaInput.value, muInput.value)
     }, [lambdaInput.value, muInput.value])
     
     return (
@@ -20,6 +22,8 @@ const MM1Form = ({ onChange }) => {
                 type='number'
                 value={lambdaInput.value}
                 onChange={lambdaInput.onChange}
+                isValid={lambdaInput.isValid}
+                msg={lambdaInput.msg}
             />
             <Input
                 label='Service rate (μ)'
@@ -27,6 +31,8 @@ const MM1Form = ({ onChange }) => {
                 type='number'
                 value={muInput.value}
                 onChange={muInput.onChange}
+                isValid={muInput.isValid}
+                msg={muInput.msg}
             />
         </form>
     )

@@ -1,20 +1,20 @@
-let validity = { isValid: true, msg: '' }
-
-const isNotNegative = (num) => {
-    const valid = num < 0
-    validity.isValid = valid
+const isValidInput = (value) => {
+    if (value.trim() === '') return validation(false, 'Fill this field')
     
-    if(!valid)
-        validity.msg = 'Please enter non negative numbers'
+    if (Number(value) < 0) return validation(false, 'Please enter non negative numbers')
 
-    return validity
+    return validation()
 }
 
 const validNum = (ans) => {
     return !isNaN(ans) && isFinite(ans)
 }
 
+const validation = (isValid=true, msg='') => {
+    return { isValid: isValid, msg: msg }
+}
+
 export {
-    isNotNegative,
+    isValidInput,
     validNum
 }
