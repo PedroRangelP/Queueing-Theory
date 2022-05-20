@@ -1,7 +1,7 @@
 import {summation, factorial} from './math'
-import {body1} from './model'
+import {body1, calculateCost} from './model'
 
-const calculateMMs = (lambda, mu, s, Pn=0) => {
+const calculateMMs = (lambda, mu, s, Pn=0, Cw=0, Cs=0) => {
     console.log("Calculating MMs")
 
     const rho = lambda / (s * mu)
@@ -22,7 +22,10 @@ const calculateMMs = (lambda, mu, s, Pn=0) => {
         probabilities[i] = calculatePn(lambda, mu, s, i, P0)
     }
 
-    return { Lq, L, Wq, W, rho, probabilities }
+    let totalCost;
+    if (Cw > 0 || Cs > 0) totalCost = calculateCost(Lq, Cw, 1, Cs)
+
+    return { Lq, L, Wq, W, rho, totalCost, probabilities }
 }
 
 const calculatePn = (lambda, mu, s, n, P0) => {

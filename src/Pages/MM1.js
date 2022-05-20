@@ -7,8 +7,8 @@ import Results from '../components/Results'
 const MM1 = () => {
     const [results, setResults] = useState({})
 
-    const formChangeHandler = (lambda, mu, pn) => {
-        const results = calculateMM1(Number(lambda), Number(mu), pn)
+    const formChangeHandler = (lambda, mu, Pn, Cw, Cs) => {
+        const results = calculateMM1(Number(lambda), Number(mu), Number(Pn), Number(Cw), Number(Cs))
         setResults(results)
     }
 

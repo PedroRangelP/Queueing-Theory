@@ -7,8 +7,8 @@ import MMsKForm from '../components/MMsKForm'
 const MMsK = () => {
     const [results, setResults] = useState({})
 
-    const formChangeHandler = (lambda, mu, s, K, Pn) => {
-        const results = calculateMMsK(Number(lambda), Number(mu), Number(s), Number(K), Pn)
+    const formChangeHandler = (lambda, mu, s, K, Pn, Cw, Cs) => {
+        const results = calculateMMsK(Number(lambda), Number(mu), Number(s), Number(K), Number(Pn), Number(Cw), Number(Cs))
         setResults(results)
     }
 

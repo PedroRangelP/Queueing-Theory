@@ -2,9 +2,7 @@ import React from 'react'
 import { validNum } from '../utils/validator'
 
 const Results = ({ data={} }) => {
-    const { Lq, L, Wq, W, rho, lambda_e } = data
-
-    const probabilities = data.probabilities
+    const { Lq, L, Wq, W, rho, lambda_e, totalCost, probabilities} = data
 
     return (
         <div className='results'>
@@ -14,6 +12,7 @@ const Results = ({ data={} }) => {
             <p>Average time in the system (W): {W}</p>
             {rho && <p>Rho (ρ): {rho}</p>}
             {lambda_e && <p>Effective arrival rate (λ<sub>e</sub>): {lambda_e}</p>}
+            {totalCost && <p>Total cost (C<sub>T</sub>): {totalCost}</p>}
             {probabilities && Object.keys(probabilities).map(pn => <p key={pn}>P<sub>{pn}</sub>: {probabilities[pn]}</p>)}
         </div>
     )
