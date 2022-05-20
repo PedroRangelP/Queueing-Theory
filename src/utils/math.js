@@ -1,6 +1,6 @@
 const round = (num) => {
     // Rounds the number two decimal places
-    const roundedNum = Math.round((num + Number.EPSILON) * 100) / 100
+    const roundedNum = Math.round((num + Number.EPSILON) * 1000) / 1000
     return roundedNum
 }
 
@@ -10,8 +10,21 @@ const summation = (idx, limit, lambda, mu) => {
     for (let i = idx; i <= limit; i++) {
         let body = Math.pow(lambda / mu, i) / factorial(i)
 
-        if (i === 0) table.push(body)
-        else table.push(table[i-1] + body)
+        if (i === idx) table[i] = body
+        else table[i] = table[i-1] + body
+
+        if (i === limit) return table[i]
+    }
+}
+
+const summationK = (idx, limit, lambda, mu, s) => {
+    let table = []
+
+    for (let i = idx; i <= limit; i++) {
+        let body = Math.pow((lambda / (s * mu)), i - s)
+
+        if (i === idx) table[i] = body
+        else table[i] = table[i-1] + body
 
         if (i === limit) return table[i]
     }
@@ -29,8 +42,8 @@ const factorial = (n) => {
 }
 
 export {
-    round,
     summation,
+    summationK,
     factorial
 }
 
