@@ -1,11 +1,12 @@
 import {summation, factorial} from './math'
+import {body1} from './model'
 
 const calculateMMs = (lambda, mu, s, Pn=0) => {
     console.log("Calculating MMs")
 
     const rho = lambda / (s * mu)
 
-    const P0_part1 = summation(0, s-1, lambda, mu)
+    const P0_part1 = summation(0, s-1, body1, {lambda: lambda, mu: mu})
     const P0_part2 = (Math.pow(lambda / mu, s) / factorial(s)) * (1 / (1 - (lambda / (s * mu))))
     const P0 = 1 / (P0_part1 + P0_part2)
 

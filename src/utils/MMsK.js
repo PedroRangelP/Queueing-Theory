@@ -1,12 +1,13 @@
-import {summation, summationK, factorial} from './math'
+import {summation, factorial} from './math'
+import {body1, body2} from './model'
 
 const calculateMMsK = (lambda, mu, s, K, Pn=0) => {
     console.log("Calculating MMsK")
 
     const rho = lambda / (s * mu)
 
-    const P0_part1 = summation(0, s, lambda, mu)
-    const P0_part2 = (Math.pow(lambda / mu, s) / factorial(s)) * summationK(s + 1, K, lambda, mu, s)
+    const P0_part1 = summation(0, s, body1, {lambda: lambda, mu: mu})
+    const P0_part2 = (Math.pow(lambda / mu, s) / factorial(s)) * summation(s + 1, K, body2, {lambda: lambda, mu: mu, s: s})
     const P0 = 1 / (P0_part1 + P0_part2)
 
     const Lq_part1 = (P0 * (Math.pow(lambda / mu, s)) * rho) / (factorial(s) * Math.pow(1 - rho, 2))

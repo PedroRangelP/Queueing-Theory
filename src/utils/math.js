@@ -4,27 +4,14 @@ const round = (num) => {
     return roundedNum
 }
 
-const summation = (idx, limit, lambda, mu) => {
+const summation = (idx, limit, body, params) => {
     let table = []
 
     for (let i = idx; i <= limit; i++) {
-        let body = Math.pow(lambda / mu, i) / factorial(i)
+        let b = body(params, i)
 
-        if (i === idx) table[i] = body
-        else table[i] = table[i-1] + body
-
-        if (i === limit) return table[i]
-    }
-}
-
-const summationK = (idx, limit, lambda, mu, s) => {
-    let table = []
-
-    for (let i = idx; i <= limit; i++) {
-        let body = Math.pow((lambda / (s * mu)), i - s)
-
-        if (i === idx) table[i] = body
-        else table[i] = table[i-1] + body
+        if (i === idx) table[i] = b
+        else table[i] = table[i-1] + b
 
         if (i === limit) return table[i]
     }
@@ -43,7 +30,6 @@ const factorial = (n) => {
 
 export {
     summation,
-    summationK,
     factorial
 }
 
