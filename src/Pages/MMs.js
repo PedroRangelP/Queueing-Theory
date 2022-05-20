@@ -8,7 +8,7 @@ const MMs = () => {
     const [results, setResults] = useState({})
 
     const formChangeHandler = (lambda, mu, s) => {
-        const results = calculateMMs(lambda, mu, s)
+        const results = calculateMMs(Number(lambda), Number(mu), Number(s), 10)
         setResults(results)
     }
 
