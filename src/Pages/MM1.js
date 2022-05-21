@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
+import Results from '../components/Results'
 import calculateMM1 from '../utils/MM1'
 import MM1Form from '../components/MM1Form'
-import Results from '../components/Results'
 
 const MM1 = () => {
     const [results, setResults] = useState({})

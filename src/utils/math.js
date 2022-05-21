@@ -1,9 +1,3 @@
-const round = (num) => {
-    // Rounds the number two decimal places
-    const roundedNum = Math.round((num + Number.EPSILON) * 1000) / 1000
-    return roundedNum
-}
-
 const summation = (idx, limit, body, params) => {
     let table = []
 

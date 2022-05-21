@@ -4,19 +4,12 @@ import useInput from '../hooks/use-input'
 import Input from './Input'
 
 const MMsForm = ({ onChange }) => {
-    // value, reset, onChange
     const lambdaInput = useInput(isValidInput)
     const muInput = useInput(isValidInput)
     const sInput = useInput(isValidInput)
     const pnInput = useInput(isNotNegative)
     const cwInput = useInput(isNotNegative)
     const csInput = useInput(isNotNegative)
-
-    // const isNotNegative = (...values) {
-
-    // }
-
-    // if()
 
     useEffect(() => {
         const isValid = lambdaInput.isValid && muInput.isValid && sInput.isValid

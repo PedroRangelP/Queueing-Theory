@@ -1,5 +1,4 @@
 import React from 'react'
-import { validNum } from '../utils/validator'
 
 const Results = ({ data={} }) => {
     const { Lq, L, Wq, W, rho, lambda_e, totalCost, probabilities} = data

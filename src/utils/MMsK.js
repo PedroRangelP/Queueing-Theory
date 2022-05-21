@@ -1,5 +1,5 @@
-import {summation, factorial} from './math'
-import {body1, body2, calculateCost} from './model'
+import { summation, factorial } from './math'
+import { body1, body2, calculateCost } from './model'
 
 const calculateMMsK = (lambda, mu, s, K, Pn=0, Cw=0, Cs=0) => {
     console.log("Calculating MMsK")

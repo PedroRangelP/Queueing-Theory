@@ -4,7 +4,6 @@ import useInput from '../hooks/use-input'
 import Input from './Input'
 
 const MG1Form = ({ onChange }) => {
-    // value, reset, onChange
     const lambdaInput = useInput(isValidInput)
     const muInput = useInput(isValidInput)
     const sigmaInput = useInput(isNotNegative)

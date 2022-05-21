@@ -4,7 +4,6 @@ import useInput from '../hooks/use-input'
 import Input from './Input'
 
 const MMsKForm = ({ onChange }) => {
-    // value, reset, onChange
     const lambdaInput = useInput(isValidInput)
     const muInput = useInput(isValidInput)
     const sInput = useInput(isValidInput)

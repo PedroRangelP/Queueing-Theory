@@ -1,4 +1,4 @@
-import {calculateCost} from './model'
+import { calculateCost } from './model'
 
 const calculateMG1 = (lambda, mu, sigma=0, Pn=0, Cw=0, Cs=0) => {
     console.log("Calculating MG1")
