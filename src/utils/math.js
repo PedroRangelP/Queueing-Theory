@@ -12,6 +12,10 @@ const summation = (idx, limit, body, params) => {
 }
 
 const factorial = (n) => {
+    if(n > 10000) {
+        return Infinity
+    }
+
     let table = []
 
     for (let i = 0; i <= n; i++) {
@@ -24,6 +28,6 @@ const factorial = (n) => {
 
 export {
     summation,
-    factorial
+    factorial,
 }
 
