@@ -5,7 +5,7 @@ const Input = ({ label, id, type, value, onChange, isValid, msg }) => {
         <div className='form-control'>
             <label htmlFor={id}>{label}</label>
             <input id={id} type={type} value={value} onChange={onChange} />
-            {!isValid && <p>{msg}</p>}
+            {!isValid && <p className='error-msg'>{msg}</p>}
         </div>
     )
 }

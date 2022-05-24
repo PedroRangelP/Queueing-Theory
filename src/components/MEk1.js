@@ -40,7 +40,7 @@ const MEk1Form = ({ onChange }) => {
                 msg={muInput.msg}
             />
             <Input
-                label='Name? (k)'
+                label='(k)'
                 id='k'
                 type='number'
                 value={kInput.value}
