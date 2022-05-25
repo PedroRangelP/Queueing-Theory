@@ -30,20 +30,13 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader',
-                    },
-                    {
-                        loader: 'css-loader',
-                    },
-                ],
+                use: [ 'style-loader', 'css-loader'],
             },
         ],
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: './public/index.html',
+            template: path.resolve(__dirname, "public", "index.html")
         }),
     ],
 }
