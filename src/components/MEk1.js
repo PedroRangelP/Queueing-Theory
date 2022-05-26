@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import { isNotNegative, isValidInput, isInteger } from '../utils/validator'
+import { isNotNegative, isValidInput, isValidLambdaMu, isInteger } from '../utils/validator'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
 const MEk1Form = ({ onChange }) => {
     // value, reset, onChange
     const lambdaInput = useInput(isValidInput)
-    const muInput = useInput(isValidInput)
+    const muInput = useInput(isValidLambdaMu, lambdaInput.value)
     const kInput = useInput(isInteger)
     const pnInput = useInput(isNotNegative)
     const cwInput = useInput(isNotNegative)
