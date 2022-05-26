@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import { isNotNegative, isValidInput, isValidLambdaMu, isValidSK } from '../utils/validator'
+import { isNotNegative, isValidInput, isValidLambdaMuS, isValidSK } from '../utils/validator'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
 const MMsKForm = ({ onChange }) => {
     const lambdaInput = useInput(isValidInput)
-    const muInput = useInput(isValidLambdaMu, lambdaInput.value)
-    const sInput = useInput(isValidInput)
+    const muInput = useInput(isValidInput)
+    const sInput = useInput(isValidLambdaMuS, muInput.value, lambdaInput.value)
     const kInput = useInput(isValidSK, sInput.value)
     const pnInput = useInput(isNotNegative)
     const cwInput = useInput(isNotNegative)
