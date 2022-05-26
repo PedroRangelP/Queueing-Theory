@@ -7,7 +7,7 @@ const TimeContext = React.createContext({
 })
 
 export const TimeContextProvider = (props) => {
-    const [timeUnit, setTimeUnit] = useState('')
+    const [timeUnit, setTimeUnit] = useState('hours')
 
     const contextValue = {
         timeUnit,
