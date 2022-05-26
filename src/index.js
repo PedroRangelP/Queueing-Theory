@@ -10,7 +10,7 @@ const rootElement = document.getElementById('root')
 const root = createRoot(rootElement)
 
 root.render(
-    <BrowserRouter>
+    <BrowserRouter basename='/Queueing-Theory'>
         <Layout>
             <h1 className='title'>Queueing Theory</h1>
             <Selector />
