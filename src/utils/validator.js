@@ -5,7 +5,7 @@ const isNotNegative = (value) => {
 }
 
 const isValidInput = (value) => {
-    if (value.trim() === '') return validation(false, 'Fill this field')
+    if (value.trim() === '') return validation(false, 'Required field')
 
     return isNotNegative(value)
 }
@@ -16,6 +16,20 @@ const isInteger = (value) => {
     return isValidInput(value)
 }
 
+const isValidLambdaMu = (mu, lambda) => {
+    if (lambda !== '' && mu !== '')
+        if (Number(lambda) >= Number(mu)) return validation(false, 'Must be greater than (λ)')
+
+    return isValidInput(mu)
+}
+
+const isValidSK = (K, s) => {
+    if (s !== '' && K !== '')
+        if (Number(s) >= Number(K)) return validation(false, "Must be greater than (s)")
+
+    return isValidInput(K)
+}
+
 const validation = (isValid=true, msg='') => {
     return { isValid: isValid, msg: msg }
 }
@@ -24,4 +38,6 @@ export {
     isNotNegative,
     isValidInput,
     isInteger,
+    isValidLambdaMu,
+    isValidSK
 }
