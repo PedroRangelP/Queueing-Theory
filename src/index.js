@@ -10,7 +10,7 @@ const root = createRoot(rootElement)
 
 root.render(
     <TimeContextProvider>
-        <BrowserRouter basename='/Queueing-Theory'>
+        <BrowserRouter>
             <App />
         </BrowserRouter>
     </TimeContextProvider>
