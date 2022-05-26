@@ -3,18 +3,15 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
-import Selector from './components/Selector'
-import Layout from './components/Layout'
+import { TimeContextProvider } from './store/time-context'
 
 const rootElement = document.getElementById('root')
 const root = createRoot(rootElement)
 
 root.render(
-    <BrowserRouter basename='/Queueing-Theory'>
-        <Layout>
-            <h1 className='title'>Queueing Theory</h1>
-            <Selector />
+    <TimeContextProvider>
+        <BrowserRouter basename='/Queueing-Theory'>
             <App />
-        </Layout>
-    </BrowserRouter>
+        </BrowserRouter>
+    </TimeContextProvider>
 )

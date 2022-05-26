@@ -20,7 +20,7 @@ const MG1Form = ({ onChange }) => {
     
     return (
         <>
-            <h3>Leave 𝜎 empty to calculate M/D/1</h3>
+            <h3 className='secondary-title'>Leave 𝜎 empty to calculate M/D/1</h3>
             <form className='model-inputs'>
                 <Input
                     label='Expected clients (λ)'

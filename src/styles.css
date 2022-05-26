@@ -16,6 +16,19 @@ body {
     font-weight: bold;
 }
 
+.time-select {
+    height: 35px;
+    padding: 5px;
+    max-width: 184.4px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--gray);
+}
+
+.secondary-title {
+    margin: 2rem 0;
+}
+
 .selector {
     display: flex;
     flex-direction: row;
