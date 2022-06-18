@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 
+import { ResultsType } from '../utils/types'
 import Probabilities from './Probabilities'
 import TimeContext from '../store/time-context'
 
-const Results = ({ data={} }) => {
+const Results = (props: { data: ResultsType }) => {
     const timeCtx = useContext(TimeContext)
     const unit = timeCtx.timeUnit
 
-    const { Lq, L, Wq, W, rho, lambda_e, totalCost, probabilities} = data
+    const { Lq, L, Wq, W, rho, lambda_e, totalCost, probabilities} = props.data
 
     return (
         <div className="results-container">

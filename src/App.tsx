@@ -21,7 +21,7 @@ const App = () => {
         <Layout>
             <h1 className='title'>Queueing Theory</h1>
             <Selector />
-            <TimeSelect onSelect={(select) => timeCtx.setTimeUnit(select)} value={timeCtx.timeUnit} />
+            <TimeSelect onSelect={(select: string) => timeCtx.setTimeUnit(select)} value={timeCtx.timeUnit} />
             <Routes>
                 <Route path='/' element={<Navigate replace to='/MM1' />} />
                 <Route path='/MM1' element={<MM1 />} />

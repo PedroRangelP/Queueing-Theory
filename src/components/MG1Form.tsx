@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
+
 import { isNotNegative, isValidInput, isValidLambdaMu } from '../utils/validator'
+import { ParamsStringType, FormPropsType } from '../utils/types'
+import { paramsToNumber } from '../utils/model'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
-const MG1Form = ({ onChange }) => {
+const MG1Form = (props: FormPropsType) => {
     const lambdaInput = useInput(isValidInput)
     const muInput = useInput(isValidLambdaMu, lambdaInput.value)
     const sigmaInput = useInput(isNotNegative)
@@ -15,7 +18,16 @@ const MG1Form = ({ onChange }) => {
         const isValid = lambdaInput.isValid && muInput.isValid && sigmaInput.isValid
                         && pnInput.isValid && cwInput.isValid && csInput.isValid
 
-        if (isValid) onChange(lambdaInput.value, muInput.value, sigmaInput.value, pnInput.value, cwInput.value, csInput.value)
+        const params: ParamsStringType = {
+            lambda: lambdaInput.value, 
+            mu: muInput.value, 
+            sigma: sigmaInput.value, 
+            Pn: pnInput.value, 
+            Cw: cwInput.value, 
+            Cs: csInput.value
+        }
+
+        if (isValid) props.onChange(paramsToNumber(params))
     }, [lambdaInput.value, muInput.value, sigmaInput.value, pnInput.value, cwInput.value, csInput.value])
     
     return (

@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Layout = ({ children }) => {
+const Layout = (props: { children: React.ReactNode }) => {
     return (
         <>
             <header></header>
-            <main className='layout'>{children}</main>
+            <main className='layout'>{props.children}</main>
             <footer></footer>
         </>
     )

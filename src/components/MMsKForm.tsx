@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
+
 import { isNotNegative, isValidInput, isValidLambdaMuS, isValidSK } from '../utils/validator'
+import { ParamsStringType, FormPropsType } from '../utils/types'
+import { paramsToNumber } from '../utils/model'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
-const MMsKForm = ({ onChange }) => {
+const MMsKForm = (props: FormPropsType) => {
     const lambdaInput = useInput(isValidInput)
     const muInput = useInput(isValidInput)
     const sInput = useInput(isValidLambdaMuS, muInput.value, lambdaInput.value)
@@ -16,7 +19,17 @@ const MMsKForm = ({ onChange }) => {
         const isValid = lambdaInput.isValid && muInput.isValid && sInput.isValid && kInput.isValid
                         && pnInput.isValid && cwInput.isValid && csInput.isValid
 
-        if (isValid) onChange(lambdaInput.value, muInput.value, sInput.value, kInput.value, pnInput.value, cwInput.value, csInput.value)
+        const params: ParamsStringType = {
+            lambda: lambdaInput.value, 
+            mu: muInput.value, 
+            s: sInput.value,
+            k: kInput.value,
+            Pn: pnInput.value, 
+            Cw: cwInput.value, 
+            Cs: csInput.value
+        }
+    
+        if (isValid) props.onChange(paramsToNumber(params))
     }, [lambdaInput.value, muInput.value, sInput.value, kInput.value, pnInput.value, cwInput.value, csInput.value])
     
     return (

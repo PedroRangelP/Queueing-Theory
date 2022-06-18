@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import Results from '../components/Results'
 import calculateMMsK from '../utils/MMsK'
 import MMsKForm from '../components/MMsKForm'
+import { ParamsType, ResultsType } from '../utils/types'
 
 const MMsK = () => {
-    const [results, setResults] = useState({})
+    const [results, setResults] = useState<ResultsType>({})
 
-    const formChangeHandler = (lambda, mu, s, K, Pn, Cw, Cs) => {
-        const results = calculateMMsK(Number(lambda), Number(mu), Number(s), Number(K), Number(Pn), Number(Cw), Number(Cs))
+    const formChangeHandler = (params: ParamsType) => {
+        const results = calculateMMsK(params)
         setResults(results)
     }
 

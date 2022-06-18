@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import Results from '../components/Results'
 import calculateMMs from '../utils/MMs'
 import MMsForm from '../components/MMsForm'
+import { ParamsType, ResultsType } from '../utils/types'
 
 const MMs = () => {
-    const [results, setResults] = useState({})
+    const [results, setResults] = useState<ResultsType>({})
 
-    const formChangeHandler = (lambda, mu, s, Pn, Cw, Cs) => {
-        const results = calculateMMs(Number(lambda), Number(mu), Number(s), Number(Pn), Number(Cw), Number(Cs))
+    const formChangeHandler = (params: ParamsType) => {
+        const results = calculateMMs(params)
         setResults(results)
     }
 

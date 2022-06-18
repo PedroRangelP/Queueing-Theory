@@ -1,6 +1,9 @@
 import React from 'react'
+import { ProbabilitiesType } from '../utils/types'
 
-const Probabilities = ({ probabilities }) => {
+const Probabilities = (props: { probabilities: ProbabilitiesType }) => {
+    const { probabilities } = props
+
     return (
         <div className='probabilities'>
             <table>

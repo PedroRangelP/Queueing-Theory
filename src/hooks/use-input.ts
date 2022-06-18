@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import { ValidatorType } from '../utils/types'
 
-const useInput = (validator, aux1=null, aux2=null) => {
-    const [value, setValue] = useState('')
+const useInput = (validator: ValidatorType, aux1?: string, aux2?: string) => {
+    const [value, setValue] = useState<string>('')
     const { isValid, msg } = validator(value, aux1, aux2)
 
-    const onChange = (e) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
     }
     

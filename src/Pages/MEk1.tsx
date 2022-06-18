@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 
 import Results from '../components/Results'
 import calculateMEk1 from '../utils/MEk1'
-import MEk1Form from '../components/MEk1'
+import MEk1Form from '../components/MEk1Form'
+import { ResultsType, ParamsType } from '../utils/types'
 
 const MEk1 = () => {
-    const [results, setResults] = useState({})
+    const [results, setResults] = useState<ResultsType>({})
 
-    const formChangeHandler = (lambda, mu, k, Pn, Cw, Cs) => {
-        const results = calculateMEk1(Number(lambda), Number(mu), Number(k), Number(Pn), Number(Cw), Number(Cs))
+    const formChangeHandler = (params: ParamsType) => {
+        const results = calculateMEk1(params)
         setResults(results)
     }
 

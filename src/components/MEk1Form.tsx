@@ -1,21 +1,35 @@
 import React, { useEffect } from 'react'
-import { isNotNegative, isValidInput, isValidLambdaMu } from '../utils/validator'
+
+import { isNotNegative, isValidInput, isValidLambdaMu, isInteger } from '../utils/validator'
+import { ParamsStringType, FormPropsType } from '../utils/types'
+import { paramsToNumber } from '../utils/model'
 import useInput from '../hooks/use-input'
 import Input from './Input'
 
-const MM1Form = ({ onChange }) => {
+const MEk1Form = (props: FormPropsType) => {
+    // value, reset, onChange
     const lambdaInput = useInput(isValidInput)
     const muInput = useInput(isValidLambdaMu, lambdaInput.value)
+    const kInput = useInput(isInteger)
     const pnInput = useInput(isNotNegative)
     const cwInput = useInput(isNotNegative)
     const csInput = useInput(isNotNegative)
 
     useEffect(() => {
-        const isValid = lambdaInput.isValid && muInput.isValid
+        const isValid = lambdaInput.isValid && muInput.isValid && kInput.isValid
                         && pnInput.isValid && cwInput.isValid && csInput.isValid
+        
+        const params: ParamsStringType = {
+            lambda: lambdaInput.value, 
+            mu: muInput.value, 
+            k: kInput.value, 
+            Pn: pnInput.value, 
+            Cw: cwInput.value, 
+            Cs: csInput.value
+        }
 
-        if (isValid) onChange(lambdaInput.value, muInput.value, pnInput.value, cwInput.value, csInput.value)
-    }, [lambdaInput.value, muInput.value, pnInput.value, cwInput.value, csInput.value])
+        if (isValid) props.onChange(paramsToNumber(params))
+    }, [lambdaInput.value, muInput.value, kInput.value, pnInput.value, cwInput.value, csInput.value])
     
     return (
         <form className='model-inputs'>
@@ -36,6 +50,15 @@ const MM1Form = ({ onChange }) => {
                 onChange={muInput.onChange}
                 isValid={muInput.isValid}
                 msg={muInput.msg}
+            />
+            <Input
+                label='(k)'
+                id='k'
+                type='number'
+                value={kInput.value}
+                onChange={kInput.onChange}
+                isValid={kInput.isValid}
+                msg={kInput.msg}
             />
             <Input
                 label='Number of probabilities (Pn)'
@@ -68,4 +91,4 @@ const MM1Form = ({ onChange }) => {
     )
 }
 
-export default MM1Form
+export default MEk1Form

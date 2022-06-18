@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import Results from '../components/Results'
 import calculateMG1 from '../utils/MG1'
 import MG1Form from '../components/MG1Form'
+import { ResultsType, ParamsType } from '../utils/types'
 
 const MG1 = () => {
-    const [results, setResults] = useState({})
+    const [results, setResults] = useState<ResultsType>({})
 
-    const formChangeHandler = (lambda, mu, sigma, Pn, Cw, Cs) => {
-        const results = calculateMG1(Number(lambda), Number(mu), Number(sigma), Number(Pn), Number(Cw), Number(Cs))
+    const formChangeHandler = (params: ParamsType) => {
+        const results = calculateMG1(params)
         setResults(results)
     }
 
