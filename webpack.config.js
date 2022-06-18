@@ -6,7 +6,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
-        publicPath: '/'
+        publicPath: '/Queueing-Theory'
     },
     resolve: {
         modules: [path.join(__dirname, 'src'), 'node_modules'],
@@ -45,7 +45,13 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: path.resolve(__dirname, "public", "index.html")
+            template: path.resolve(__dirname, "public", "index.html"),
+            chunks: ['main']
+        }),
+        new HtmlWebPackPlugin({
+            filename: '404.html',
+            template: path.resolve(__dirname, "public", "404.html"),
+            chunks: ['404']
         }),
     ],
 }

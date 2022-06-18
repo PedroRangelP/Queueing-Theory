@@ -9,8 +9,8 @@ const root = createRoot(rootElement)
 
 root.render(
     <TimeContextProvider>
-        {/* <BrowserRouter basename='/Queueing-Theory'> */}
-        <BrowserRouter>
+        {/* <BrowserRouter> */}
+        <BrowserRouter basename='/Queueing-Theory'>
             <App />
         </BrowserRouter>
     </TimeContextProvider>
