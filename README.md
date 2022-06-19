@@ -7,7 +7,7 @@
 ### Queueing Models
 Queueing models calculator
 
-This calculator implementats different models of queueing theory. 
+This calculator implements different models of queueing theory. 
 The available Queue models in Kendall notation are:
 
 - M/M/1
@@ -22,7 +22,7 @@ The available Queue models in Kendall notation are:
 - Enter the required values
 - Enter the number of probabilities (optional)
 - Enter costs (optional)
-- Watch results (Calculations are performed immediatly)
+- Watch results (Calculations are performed automatically)
 
 Available at: [Github pages](https://pedrorangelp.github.io/Queueing-Theory/).
 
