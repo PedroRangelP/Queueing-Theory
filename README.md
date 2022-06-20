@@ -28,5 +28,5 @@ Available at: [Github pages](https://pedrorangelp.github.io/Queueing-Theory/).
 
 ### Specifications
 - **Language:** TypeScript
-- **Framework:** React
+- **Frontend:** React
 - **Module Bundler:** Webpack
